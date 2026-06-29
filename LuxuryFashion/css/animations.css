@@ -1,0 +1,363 @@
+/* ==========================================================================
+   AURA LUXURY FASHION EDITORIAL CSS
+   Animations, Transitions, Preloader & Modals
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Luxury Preloader System
+   -------------------------------------------------------------------------- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-cream);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.preloader.dismissed {
+    transform: translateY(-100%);
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-brand {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--color-dark-brown);
+    letter-spacing: 0.3em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: preloader-fade-in 1s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.preloader-line-container {
+    width: 180px;
+    height: 1px;
+    background-color: rgba(61, 43, 36, 0.1);
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--color-gold);
+    transition: width 0.1s linear;
+}
+
+.preloader-counter {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.preloader-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+@keyframes preloader-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Modals (Quick View)
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(61, 43, 36, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--color-cream);
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+    transform: translateY(50px) scale(0.95);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-border);
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    transition: var(--transition-smooth);
+}
+
+.close-modal-btn:hover {
+    color: var(--color-gold);
+    transform: rotate(90deg);
+}
+
+.modal-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 600px;
+}
+
+.modal-gallery {
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--color-beige);
+}
+
+.modal-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-details {
+    padding: 3.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-brand {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: var(--color-dark-brown);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.modal-price {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.modal-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.option-group {
+    margin-bottom: 2rem;
+}
+
+.option-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--color-dark-brown);
+}
+
+.size-options {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.size-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    background-color: var(--color-white);
+}
+
+.size-btn:hover {
+    border-color: var(--color-dark-brown);
+    color: var(--color-dark-brown);
+}
+
+.size-btn.active {
+    background-color: var(--color-dark-brown);
+    border-color: var(--color-dark-brown);
+    color: var(--color-cream);
+}
+
+.modal-actions-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.modal-actions-container #modal-add-to-cart {
+    flex: 1;
+}
+
+.modal-actions-container #modal-add-to-wishlist {
+    width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 1px solid var(--color-beige);
+    color: var(--color-dark-brown);
+}
+
+.modal-actions-container #modal-add-to-wishlist:hover {
+    background-color: var(--color-wine-red);
+    color: var(--color-white);
+    border-color: var(--color-wine-red);
+}
+
+.modal-meta-info {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.modal-meta-info p {
+    margin-bottom: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. GSAP Reveals Pre-animation states
+   -------------------------------------------------------------------------- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.image-reveal-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gold);
+    z-index: 5;
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* --------------------------------------------------------------------------
+   4. Micro-interactions
+   -------------------------------------------------------------------------- */
+/* Smooth border color transition for cards */
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+    border-radius: 24px;
+}
+
+.product-card:hover::after {
+    border-color: var(--color-gold);
+}
+
+/* Dynamic Add-to-bag hover animation inside card info */
+.btn-add-to-bag {
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Page loading visual enhancement */
+body.loading {
+    overflow: hidden;
+}
+body.loading .navbar-wrapper {
+    transform: translateY(-100%);
+}
+body:not(.loading) .navbar-wrapper {
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}

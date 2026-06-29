@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddy Sarees | Premium Indian Ethnic Wear</title>
+    <meta name="description" content="Discover Reddy Sarees' Wedding Collection 2026. A premium selection of Banarasi, Kanchipuram silk sarees, designer lehengas, and elegant sherwanis.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Elegant Loading Screen -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <h2 class="preloader-brand" style="letter-spacing: 0.1em;">REDDY SAREES</h2>
+            <div class="preloader-line-container">
+                <div class="preloader-line"></div>
+            </div>
+            <div class="preloader-counter"><span id="load-percentage">0</span>%</div>
+            <p class="preloader-subtitle">Crafting Timeless Heritage</p>
+        </div>
+    </div>
+
+    <!-- Transparent Glassmorphism Sticky Navbar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar container" id="main-navbar">
+            <!-- Mobile Menu Toggle -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Navigation Links (Left) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#categories" class="nav-link">Women</a></li>
+                <li><a href="#categories" class="nav-link">Men</a></li>
+                <li><a href="#new-arrivals" class="nav-link">Collections</a></li>
+                <li><a href="#trending" class="nav-link">Bridal</a></li>
+                <li><a href="#footer" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- LOGO (Center) -->
+            <a href="#" class="brand-logo" style="letter-spacing: 0.05em; font-weight: 500;">Reddy Sarees</a>
+
+            <!-- Action Icons (Right) -->
+            <div class="nav-actions">
+                <button class="nav-action-btn" id="search-open-btn" aria-label="Search Catalog">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="nav-action-btn" id="wishlist-open-btn" aria-label="Open Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="action-badge" id="wishlist-count">0</span>
+                </button>
+                <button class="nav-action-btn" id="cart-open-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="action-badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay" data-lenis-prevent>
+        <button class="close-overlay-btn" id="search-close-btn" aria-label="Close Search">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="search-container">
+            <form class="search-form" id="search-form">
+                <input type="text" placeholder="Search sarees, lehengas, sherwanis..." class="search-input" id="search-input" autocomplete="off">
+                <button type="submit" class="search-submit-btn" aria-label="Submit Search">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            <div class="search-suggestions">
+                <h4>Suggested Searches</h4>
+                <ul>
+                    <li><a href="#" class="suggested-tag">Banarasi Sarees</a></li>
+                    <li><a href="#" class="suggested-tag">Bridal Lehengas</a></li>
+                    <li><a href="#" class="suggested-tag">Kanchipuram Silk</a></li>
+                    <li><a href="#" class="suggested-tag">Kurta Sets</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Drawer -->
+    <div class="drawer-overlay" id="wishlist-drawer-overlay"></div>
+    <div class="drawer" id="wishlist-drawer" data-lenis-prevent>
+        <div class="drawer-header">
+            <h3>Your Wishlist</h3>
+            <button class="close-drawer-btn" id="wishlist-close-btn" aria-label="Close Wishlist Drawer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="wishlist-drawer-body">
+            <!-- Dynamic Wishlist Items Go Here -->
+            <div class="drawer-empty-msg">
+                <i class="fa-regular fa-heart"></i>
+                <p>Your wishlist is currently empty.</p>
+                <button class="btn btn-primary shop-now-btn">Explore Collections</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Drawer (Slide-out Right) -->
+    <div class="drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="drawer" id="cart-drawer" data-lenis-prevent>
+        <div class="drawer-header">
+            <h3>Shopping Bag</h3>
+            <button class="close-drawer-btn" id="cart-close-btn" aria-label="Close Shopping Bag Drawer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="cart-drawer-body">
+            <!-- Dynamic Cart Items Go Here -->
+            <div class="drawer-empty-msg">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p>Your shopping bag is empty.</p>
+                <button class="btn btn-primary shop-now-btn">Explore Collections</button>
+            </div>
+        </div>
+        <div class="drawer-footer" id="cart-drawer-footer" style="display: none;">
+            <div class="cart-totals">
+                <span>Subtotal</span>
+                <span class="total-amount" id="cart-total-price">₹0.00</span>
+            </div>
+            <p class="shipping-info">Shipping and taxes calculated at checkout.</p>
+            <button class="btn btn-primary checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickview-overlay" data-lenis-prevent>
+        <div class="modal" id="quickview-modal">
+            <button class="close-modal-btn" id="quickview-close-btn" aria-label="Close Quick View">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-content-grid">
+                <div class="modal-gallery">
+                    <img id="quickview-image" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-brand">REDDY SAREES HERITAGE</span>
+                    <h2 class="modal-title" id="quickview-name">Product Name</h2>
+                    <p class="modal-price" id="quickview-price">₹0.00</p>
+                    <p class="modal-description" id="quickview-desc">
+                        Handcrafted by generational artisans with gold-threaded details. This masterpiece is an expression of traditional grace and slow craftsmanship.
+                    </p>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Select Size</label>
+                            <div class="size-options">
+                                <button class="size-btn active">XS</button>
+                                <button class="size-btn">S</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions-container">
+                        <button class="btn btn-primary" id="modal-add-to-cart">ADD TO BAG</button>
+                        <button class="btn btn-secondary" id="modal-add-to-wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="modal-meta-info">
+                        <p><strong>SKU:</strong> <span id="quickview-sku">RDS-928472</span></p>
+                        <p><strong>Materials:</strong> Pure Mulberry Silk / Zari threadwork</p>
+                        <p><strong>Care:</strong> Dry Clean Only</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-container">
+            <img src="images/hero.jpg" alt="Reddy Sarees Bridal Traditional Background" class="hero-bg" id="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content container">
+            <span class="hero-subtitle scroll-reveal-text">THE ROYAL ETHNIC WEAR</span>
+            <h1 class="hero-title">
+                <span class="title-line">Celebrate Every Tradition</span>
+                <span class="title-line">with Elegance</span>
+            </h1>
+            <p style="font-size: 1.1rem; letter-spacing: 0.05em; margin-bottom: 2rem; color: #FFFFFF; font-weight: 300;">Premium Sarees & Ethnic Wear Crafted for Every Occasion.</p>
+            <div class="hero-actions">
+                <a href="#new-arrivals" class="btn btn-primary shop-now-btn">SHOP NOW</a>
+                <a href="#editorial" class="btn btn-link">OUR ARTISANS <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="indicator-text">SCROLL TO EXPLORE</span>
+            <div class="indicator-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories-section section-padding" id="categories">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">THE HERITAGE</span>
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="section-title-line"></div>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Category 1: Women -->
+                <div class="category-card reveal-up">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=600&auto=format&fit=crop" alt="Women's Sarees & Lehengas" class="category-img">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">WOMEN</h3>
+                        <a href="#new-arrivals" class="category-link">
+                            DISCOVER
+                            <span class="gold-line"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 2: Men -->
+                <div class="category-card reveal-up">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=600&auto=format&fit=crop" alt="Men's Kurta & Sherwani" class="category-img">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">MEN</h3>
+                        <a href="#new-arrivals" class="category-link">
+                            DISCOVER
+                            <span class="gold-line"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3: Bridal Collection -->
+                <div class="category-card reveal-up">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop" alt="Wedding Bridal Sarees" class="category-img">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">BRIDAL COLLECTION</h3>
+                        <a href="#new-arrivals" class="category-link">
+                            DISCOVER
+                            <span class="gold-line"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 4: Festive Collection -->
+                <div class="category-card reveal-up">
+                    <div class="category-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600&auto=format&fit=crop" alt="Traditional Festive Outfits" class="category-img">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-name">FESTIVE COLLECTION</h3>
+                        <a href="#new-arrivals" class="category-link">
+                            DISCOVER
+                            <span class="gold-line"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals-section section-padding bg-cream" id="new-arrivals">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">HANDWOVEN MASTERPIECES</span>
+                <h2 class="section-title">New Arrivals</h2>
+                <div class="section-title-line"></div>
+            </div>
+
+            <!-- 4 Column Product Grid -->
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card reveal-up" data-id="na-1" data-name="Banarasi Silk Saree" data-price="5999.00" data-img-primary="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=600&auto=format&fit=crop">
+                    <div class="product-image-wrapper">
+                        <button class="wishlist-btn" aria-label="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop" alt="Banarasi Silk Saree" class="product-img img-primary" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=600&auto=format&fit=crop" alt="Banarasi Silk Saree Alternative View" class="product-img img-hover" loading="lazy">
+                    </div>
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Banarasi Silk Saree</h3>
+                        <p class="product-price">₹5,999.00</p>
+                        <button class="btn-add-to-bag">ADD TO BAG</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card reveal-up" data-id="na-2" data-name="Designer Bridal Lehenga" data-price="8499.00" data-img-primary="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1605646271252-52aa25bcf218?q=80&w=600&auto=format&fit=crop">
+                    <div class="product-image-wrapper">
+                        <button class="wishlist-btn" aria-label="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600&auto=format&fit=crop" alt="Designer Bridal Lehenga" class="product-img img-primary" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1605646271252-52aa25bcf218?q=80&w=600&auto=format&fit=crop" alt="Designer Bridal Lehenga Alternative View" class="product-img img-hover" loading="lazy">
+                    </div>
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Designer Bridal Lehenga</h3>
+                        <p class="product-price">₹8,499.00</p>
+                        <button class="btn-add-to-bag">ADD TO BAG</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card reveal-up" data-id="na-3" data-name="Chanderi Cotton Saree" data-price="4299.00" data-img-primary="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600&auto=format&fit=crop">
+                    <div class="product-image-wrapper">
+                        <button class="wishlist-btn" aria-label="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                        <img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=600&auto=format&fit=crop" alt="Chanderi Cotton Saree" class="product-img img-primary" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=600&auto=format&fit=crop" alt="Chanderi Cotton Saree Alternative View" class="product-img img-hover" loading="lazy">
+                    </div>
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Chanderi Cotton Saree</h3>
+                        <p class="product-price">₹4,299.00</p>
+                        <button class="btn-add-to-bag">ADD TO BAG</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card reveal-up" data-id="na-4" data-name="Organza Floral Saree" data-price="3499.00" data-img-primary="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop">
+                    <div class="product-image-wrapper">
+                        <button class="wishlist-btn" aria-label="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600&auto=format&fit=crop" alt="Organza Floral Saree" class="product-img img-primary" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop" alt="Organza Floral Saree Alternative View" class="product-img img-hover" loading="lazy">
+                    </div>
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Organza Floral Saree</h3>
+                        <p class="product-price">₹3,499.00</p>
+                        <button class="btn-add-to-bag">ADD TO BAG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection Banner Section (Parallax) -->
+    <section class="banner-section" id="featured-banner">
+        <div class="banner-bg-container">
+            <img src="images/banner.jpg" alt="Reddy Sarees Wedding Collection 2026" class="banner-bg" id="banner-bg-img">
+            <div class="banner-overlay"></div>
+        </div>
+        <div class="banner-content container text-center">
+            <span class="banner-subtitle">LIMITED EDITIONS</span>
+            <h2 class="banner-title">Wedding Collection 2026</h2>
+            <p class="banner-text">A study of minimalist silhouettes, warm gold borders, and heritage silks designed for timeless legacy.</p>
+            <a href="#trending" class="btn btn-white">DISCOVER</a>
+        </div>
+    </section>
+
+    <!-- Editorial Storytelling Section -->
+    <section class="editorial-section section-padding bg-cream" id="editorial">
+        <div class="container">
+            <div class="editorial-grid">
+                <!-- Left: Large Image with Reveal -->
+                <div class="editorial-image-column reveal-left">
+                    <div class="editorial-image-wrapper">
+                        <img src="images/collection.jpg" alt="Zari Weaving Craftsmanship Details" class="editorial-img">
+                        <div class="editorial-line-accent"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Editorial Text content -->
+                <div class="editorial-content-column reveal-right">
+                    <span class="editorial-tag">OUR VALUES</span>
+                    <h2 class="editorial-title">Crafted with Heritage, Woven by Hand</h2>
+                    <p class="editorial-lead">In a fast-paced world, Reddy Sarees stands for patience. We craft clothing that honors our weaving elders, handpicked pure silks, and intricate Zari detailing that lasts generations.</p>
+                    
+                    <div class="editorial-pillars">
+                        <div class="pillar">
+                            <span class="pillar-num">01</span>
+                            <div class="pillar-info">
+                                <h3>Slow Fashion Philosophy</h3>
+                                <p>We create sarees in limited amounts to preserve loom integrity and support weavers directly.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <span class="pillar-num">02</span>
+                            <div class="pillar-info">
+                                <h3>Premium Silk Threads</h3>
+                                <p>From pure mulberry silkworms to authentic gold threads, our fabric touch is signature.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <span class="pillar-num">03</span>
+                            <div class="pillar-info">
+                                <h3>Handloom Tradition</h3>
+                                <p>Partnering with historic loom ateliers to preserve generations of Indian craftsmanship.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Collection Slider (Swiper.js) -->
+    <section class="trending-section section-padding" id="trending">
+        <div class="container">
+            <div class="trending-header">
+                <div class="trending-header-text">
+                    <span class="section-tag">MOST COVETED</span>
+                    <h2 class="section-title">Trending Now</h2>
+                </div>
+                <div class="swiper-nav-buttons">
+                    <button class="swiper-btn-prev" aria-label="Previous Products">
+                        <i class="fa-solid fa-arrow-left-long"></i>
+                    </button>
+                    <button class="swiper-btn-next" aria-label="Next Products">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="swiper trending-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="product-card" data-id="tr-1" data-name="Kanchipuram Silk Saree" data-price="18999.00" data-img-primary="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600&auto=format&fit=crop">
+                            <div class="product-image-wrapper">
+                                <button class="wishlist-btn" aria-label="Add to Wishlist">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                                <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                                <img src="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=600&auto=format&fit=crop" alt="Kanchipuram Silk Saree" class="product-img img-primary" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600&auto=format&fit=crop" alt="Kanchipuram Silk Saree Alternative View" class="product-img img-hover" loading="lazy">
+                            </div>
+                            <div class="product-info text-center">
+                                <h3 class="product-name">Kanchipuram Silk Saree</h3>
+                                <p class="product-price">₹8,999.00</p>
+                                <button class="btn-add-to-bag">ADD TO BAG</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="product-card" data-id="tr-2" data-name="Royal Ivory Sherwani" data-price="8999.00" data-img-primary="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=600&auto=format&fit=crop">
+                            <div class="product-image-wrapper">
+                                <button class="wishlist-btn" aria-label="Add to Wishlist">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                                <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                                <img src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=600&auto=format&fit=crop" alt="Royal Ivory Sherwani" class="product-img img-primary" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=600&auto=format&fit=crop" alt="Royal Ivory Sherwani Alternative View" class="product-img img-hover" loading="lazy">
+                            </div>
+                            <div class="product-info text-center">
+                                <h3 class="product-name">Royal Ivory Sherwani</h3>
+                                <p class="product-price">₹8,999.00</p>
+                                <button class="btn-add-to-bag">ADD TO BAG</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="product-card" data-id="tr-3" data-name="Embroidered Kurta Set" data-price="3999.00" data-img-primary="https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=600&auto=format&fit=crop">
+                            <div class="product-image-wrapper">
+                                <button class="wishlist-btn" aria-label="Add to Wishlist">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                                <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                                <img src="https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=600&auto=format&fit=crop" alt="Embroidered Kurta Set" class="product-img img-primary" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=600&auto=format&fit=crop" alt="Embroidered Kurta Set Alternative View" class="product-img img-hover" loading="lazy">
+                            </div>
+                            <div class="product-info text-center">
+                                <h3 class="product-name">Embroidered Kurta Set</h3>
+                                <p class="product-price">₹3,999.00</p>
+                                <button class="btn-add-to-bag">ADD TO BAG</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="product-card" data-id="tr-4" data-name="Indo-Western Draped Set" data-price="2499.00" data-img-primary="https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=600&auto=format&fit=crop" data-img-hover="https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=600&auto=format&fit=crop">
+                            <div class="product-image-wrapper">
+                                <button class="wishlist-btn" aria-label="Add to Wishlist">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                                <a href="#" class="quick-view-badge">QUICK VIEW</a>
+                                <img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?q=80&w=600&auto=format&fit=crop" alt="Indo-Western Draped Set" class="product-img img-primary" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?q=80&w=600&auto=format&fit=crop" alt="Indo-Western Draped Set Alternative View" class="product-img img-hover" loading="lazy">
+                            </div>
+                            <div class="product-info text-center">
+                                <h3 class="product-name">Indo-Western Draped Set</h3>
+                                <p class="product-price">₹2,499.00</p>
+                                <button class="btn-add-to-bag">ADD TO BAG</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">VOICES</span>
+                <h2 class="section-title">The Reddy Sarees Experience</h2>
+                <div class="section-title-line"></div>
+            </div>
+
+            <div class="swiper testimonials-slider reveal-up">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-user">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Elena Rostova Client Headshot" class="user-avatar">
+                                <div class="user-details">
+                                    <h4 class="user-name">Pooja Reddy</h4>
+                                    <span class="user-title">Bride</span>
+                                </div>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The bridal Banarasi saree is absolutely exquisite. The weight of the silk, the authentic gold threadwork along the borders—it felt like wearing royalty. Thank you for keeping the handloom tradition alive."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-user">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Marcus Sterling Client Headshot" class="user-avatar">
+                                <div class="user-details">
+                                    <h4 class="user-name">Rahul Sharma</h4>
+                                    <span class="user-title">Designer</span>
+                                </div>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "I value geometry, details, and structural truth. Reddy Sarees' tailoring is flawless. The embroidery on the Royal Ivory Sherwani is structured yet soft. It represents heritage craftsmanship at its finest."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination testimonial-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section class="instagram-section section-padding bg-cream">
+        <div class="container-fluid">
+            <div class="section-header text-center">
+                <span class="section-tag">CURATED LIFESTYLE</span>
+                <h2 class="section-title">Seen on Instagram</h2>
+                <div class="section-title-line"></div>
+            </div>
+
+            <div class="instagram-grid">
+                <!-- Post 1 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1610030469668-93535c17b6b3?q=80&w=400&auto=format&fit=crop" alt="Banarasi Saree Instagram Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=400&auto=format&fit=crop" alt="Bridal Lehenga Details Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <!-- Post 3 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=crop" alt="Kanchipuram Silk Saree Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <!-- Post 4 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=400&auto=format&fit=crop" alt="Traditional Kurta Men Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <!-- Post 5 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=crop" alt="Craft Loom Studio Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <!-- Post 6 -->
+                <div class="instagram-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=crop" alt="Banarasi Silk Details Post" class="instagram-img" loading="lazy">
+                    <div class="instagram-overlay">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section section-padding">
+        <div class="container">
+            <div class="newsletter-card reveal-up">
+                <div class="newsletter-content text-center">
+                    <span class="newsletter-tag">REDDY CHRONICLES</span>
+                    <h2 class="newsletter-title">Subscribe to the Weaves</h2>
+                    <p class="newsletter-subtitle">Receive notifications of limited loom releases, festive collection launches, and direct heritage stories.</p>
+                    
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="Your email address" class="newsletter-input" required autocomplete="off">
+                            <button type="submit" class="btn btn-secondary newsletter-submit-btn">SUBSCRIBE</button>
+                        </div>
+                    </form>
+                    <p class="newsletter-privacy">We respect your silence. Opt out at any point.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer class="footer-wrapper bg-dark-brown text-white" id="footer">
+        <div class="container footer-grid">
+            <!-- Col 1: Brand -->
+            <div class="footer-column brand-column">
+                <h3 class="footer-brand">Reddy Sarees</h3>
+                <p class="footer-bio">Premium Indian Ethnic Wear • Sarees • Lehengas • Kurta Sets • Sherwanis. Creating timeless silhouettes from ethically sourced handlooms.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Shop -->
+            <div class="footer-column">
+                <h4>Collections</h4>
+                <ul>
+                    <li><a href="#new-arrivals">New Arrivals</a></li>
+                    <li><a href="#categories">Women's Sarees</a></li>
+                    <li><a href="#categories">Men's Kurta Sets</a></li>
+                    <li><a href="#trending">Bridal Collection</a></li>
+                    <li><a href="#trending">Festive Wear</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Support -->
+            <div class="footer-column">
+                <h4>Atelier Service</h4>
+                <ul>
+                    <li><a href="#">Size Consultations</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">Lifetime Guarantee</a></li>
+                    <li><a href="#">Store Locations</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Corporate -->
+            <div class="footer-column">
+                <h4>The Company</h4>
+                <ul>
+                    <li><a href="#editorial">Handloom Initiatives</a></li>
+                    <li><a href="#">Material Transparency</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press Editorial</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom container text-center">
+            <p>&copy; 2026 Reddy Sarees. All rights reserved. Crafted with traditional craftsmanship.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Checkout Modal -->
+    <div class="modal-overlay" id="checkout-overlay" data-lenis-prevent>
+        <div class="modal" id="checkout-modal" style="max-width: 600px;">
+            <button class="close-modal-btn" id="checkout-close-btn" aria-label="Close Checkout">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="checkout-modal-content" style="padding: 1rem;">
+                <span class="modal-brand" style="font-size: 0.75rem; letter-spacing: 0.2em; color: var(--color-gold); display: block; margin-bottom: 0.5rem; font-weight: 600;">REDDY SAREES ATELIER</span>
+                <h2 class="modal-title" style="font-family: var(--font-heading); font-size: 2rem; font-weight: 400; color: var(--color-dark-brown); margin-bottom: 0.5rem; letter-spacing: -0.01em;">Secure Checkout</h2>
+                <p class="modal-description" style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 2rem;">Complete your order details below to finalize your selection.</p>
+                
+                <!-- Order Summary Mini -->
+                <div class="checkout-summary-mini" style="background: var(--color-beige); padding: 1.2rem; margin-bottom: 2rem; border: 1px solid var(--color-border); display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; font-weight: 500; color: var(--color-dark-brown); font-size: 0.85rem;">
+                        <span>Total Items:</span>
+                        <span id="checkout-items-qty">0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: 600; color: var(--color-dark-brown); font-size: 1.1rem; border-top: 1px solid var(--color-border); padding-top: 0.5rem;">
+                        <span>Amount Payable:</span>
+                        <span id="checkout-total-price">₹0.00</span>
+                    </div>
+                </div>
+
+                <!-- Form / Success Screen Container -->
+                <div id="checkout-form-container">
+                    <form id="checkout-form" class="checkout-form" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                            <label for="checkout-name" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-dark-brown);">Full Name</label>
+                            <input type="text" id="checkout-name" required placeholder="Pooja Reddy" style="padding: 1rem; border: 1px solid var(--color-border); font-family: var(--font-body); background: var(--color-white); width: 100%; border-radius: 0;">
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                            <label for="checkout-address" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-dark-brown);">Shipping Address</label>
+                            <textarea id="checkout-address" required placeholder="123 Heritage Lane, Jubilee Hills, Hyderabad, 500033" rows="3" style="padding: 1rem; border: 1px solid var(--color-border); font-family: var(--font-body); background: var(--color-white); width: 100%; resize: none; border-radius: 0;"></textarea>
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                            <label for="checkout-phone" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-dark-brown);">Phone Number</label>
+                            <input type="tel" id="checkout-phone" required placeholder="+91 98765 43210" style="padding: 1rem; border: 1px solid var(--color-border); font-family: var(--font-body); background: var(--color-white); width: 100%; border-radius: 0;">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                                <label for="checkout-card" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-dark-brown);">Simulated Card</label>
+                                <input type="text" id="checkout-card" required placeholder="4111 2222 3333 4444" style="padding: 1rem; border: 1px solid var(--color-border); font-family: var(--font-body); background: var(--color-white); width: 100%; border-radius: 0;">
+                            </div>
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                                <label for="checkout-expiry" style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-dark-brown);">Expiry / CVV</label>
+                                <input type="text" id="checkout-expiry" required placeholder="MM/YY - 123" style="padding: 1rem; border: 1px solid var(--color-border); font-family: var(--font-body); background: var(--color-white); width: 100%; border-radius: 0;">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1rem; padding: 1.2rem; width: 100%; border-radius: 0;">PLACE ORDER</button>
+                    </form>
+                </div>
+
+                <!-- Success Screen (Hidden initially) -->
+                <div id="checkout-success-container" style="display: none; padding: 2rem 0; text-align: center;">
+                    <div style="font-size: 4rem; color: var(--color-gold); margin-bottom: 1.5rem;">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 400; color: var(--color-dark-brown); margin-bottom: 1rem;">Order Placed Successfully!</h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 0.5rem; font-size: 0.95rem;">Thank you for supporting handloom weaving heritage.</p>
+                    <p style="font-size: 0.9rem; font-weight: 600; color: var(--color-dark-brown); margin-bottom: 2.5rem;">Order Reference: <span id="checkout-order-ref" style="color: var(--color-gold);">RDS-2026-82947</span></p>
+                    <button class="btn btn-primary" id="checkout-continue-btn" style="padding: 1.1rem 3rem; border-radius: 0;">CONTINUE SHOPPING</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    
+    <!-- Swiper.js Slider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>
